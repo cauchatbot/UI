@@ -52,7 +52,7 @@
          <content>
             <TableView prefHeight="848.0" prefWidth="394.0" fx:id="twitchTable">
               <columns>
-                <TableColumn prefWidth="75.0" text="닉네임" fx:id=""/>
+                <TableColumn prefWidth="75.0" text="닉네임" />
                 <TableColumn prefWidth="75.0" text="시간" />
                   <TableColumn prefWidth="243.0" text="채팅기록" />
               </columns>

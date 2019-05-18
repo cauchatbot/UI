@@ -15,9 +15,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Font.loadFont(getClass().getResourceAsStream("Roboto-Regular.ttf"), 14);
 
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         primaryStage.setTitle("DDOKDDOK Chatbot");
-        primaryStage.setScene(new Scene(root, 640, 360));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 

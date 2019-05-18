@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javax.swing.text.html.ImageView;
 
-public class Youtube implements Initializable {
+public class TwitchController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }

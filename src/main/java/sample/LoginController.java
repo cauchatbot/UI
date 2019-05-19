@@ -43,7 +43,7 @@ public class LoginController implements Initializable {
         Stage oldStage = (Stage) tmpButton.getScene().getWindow();//login window.
 
         String login = loginID.getText();
-        //platform checking
+        //platform button input checking
         switch (tmpButton.getId()) {
             //for youtube platform.
             case "youtubeButton":
@@ -62,7 +62,7 @@ public class LoginController implements Initializable {
             case "twitchButton":
                 //id checking function call.
                 if(idCheckTwitch(login)) {
-                    //login success. close the login window and show youtube window.
+                    //login success. close the login window and show twitch window.
                     oldStage.close();
                     twitchWindow();
                 }

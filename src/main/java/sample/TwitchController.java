@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import javax.swing.text.html.ImageView;
 
 public class TwitchController implements Initializable {
+    //3Buttons, TableView initialize.
     @FXML
     private Button keywords;
     @FXML
@@ -39,12 +40,14 @@ public class TwitchController implements Initializable {
     @FXML
     private TableColumn<tempDSProperty, String> chat;
 
+    //temp initialize for show test
     tempDS seongmin = new tempDS("shieldnet", "ATEZ", "시발");
     ObservableList<tempDSProperty> myList = FXCollections.observableArrayList(
             new tempDSProperty("kwxyk", "Reichidad", "Sex!!!!!!!!!", true),
             new tempDSProperty(seongmin)
     );
 
+    //initialize table contents, button actions.
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         userID.setCellValueFactory(cellData -> cellData.getValue().getUserID());
@@ -52,12 +55,14 @@ public class TwitchController implements Initializable {
         chat.setCellValueFactory(cellData -> cellData.getValue().getChatText());
         twitchTable.setItems(myList);
 
+        //call each corresponding window that will be shown for clicking button
         keywords.setOnAction(event -> keywordsWindow());
         urls.setOnAction(event -> urlsWindow());
         streamers.setOnAction(event->streamersWindow());
 
     }
 
+    // show keywords window.
     public void keywordsWindow(){
         try {
             Desktop.getDesktop().edit(new File("C:\\Users\\김영현\\IdeaProjects\\UI02\\src\\main\\java\\sample\\keywords.txt"));
@@ -73,6 +78,7 @@ public class TwitchController implements Initializable {
         }
 
     }
+    // show urls window.
     public void urlsWindow(){
         try {
             Desktop.getDesktop().edit(new File("C:\\Users\\김영현\\IdeaProjects\\UI02\\src\\main\\java\\sample\\urls.txt"));
@@ -88,6 +94,7 @@ public class TwitchController implements Initializable {
         }
 
     }
+    //show streamers window.
     public void streamersWindow(){
         try {
             Desktop.getDesktop().edit(new File("C:\\Users\\김영현\\IdeaProjects\\UI02\\src\\main\\java\\sample\\streamers.txt"));

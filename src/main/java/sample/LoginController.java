@@ -77,10 +77,12 @@ public class LoginController implements Initializable {
     }
     //idCheck : temp function for testing.
     public boolean idCheckTwitch(String login) {
-        return true;
+        if(login.equals("twitch")) return true;
+        else return false;
     }
     public boolean idCheckYoutube(String login) {
-        return false;
+        if(login.equals("youtube")) return true;
+        else return false;
     }
     // show youtube window.
     private void youtubeWindow() {

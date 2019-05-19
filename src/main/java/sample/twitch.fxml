@@ -12,22 +12,22 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #242A31;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TwitchController">
    <children>
-      <Pane prefHeight="800.0" prefWidth="147.0" style="-fx-background-color: #8A2BE2;">
+      <ScrollPane layoutX="172.0" layoutY="49.0" prefHeight="703.0" prefWidth="404.0" >
+         <content>
+            <TableView fx:id="twitchTable">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="닉네임" fx:id = "UserID"/>
+                  <TableColumn prefWidth="75.0" text="시간" fx:id="Time"/>
+                  <TableColumn prefWidth="243.0" text="채팅기록" fx:id="Chat"/>
+               </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Pane prefHeight="800.0" prefWidth="147.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Label layoutX="39.0" layoutY="7.0" prefHeight="35.0" prefWidth="112.0" text="TwitchMode." textFill="#fbf4ff">
-               <font>
-                  <Font name="Arial Black" size="15.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="40.0" fitWidth="29.0" layoutX="4.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@twitchIcon.png" />
-               </image>
-            </ImageView>
-            <Line endX="45.5" layoutX="101.0" layoutY="42.0" startX="-100.0" stroke="#af9bbb" />
-            <Button layoutX="17.0" layoutY="55.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="108.0" text="욕설 키워드 추가" />
-            <Button layoutX="17.0" layoutY="130.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="108.0" text="허용 URL 추가" />
-            <Button layoutX="17.0" layoutY="205.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="108.0" text="입장 알림 추가" />
+            <Button fx:id="keywords" layoutX="17.0" layoutY="95.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="108.0" text="욕설 키워드 추가" />
+            <Button fx:id="urls" layoutX="17.0" layoutY="180.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="108.0" text="허용 URL 추가" />
+            <Button fx:id="streamers" layoutX="17.0" layoutY="265.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="108.0" text="입장 알림 추가" />
             <ImageView fitHeight="118.0" fitWidth="108.0" layoutX="17.0" layoutY="630.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@ddokddok.png" />
@@ -36,28 +36,22 @@
                   <InnerShadow blurType="GAUSSIAN" choke="1.0" color="WHITE" height="10.0" radius="4.5" width="10.0" />
                </effect>
             </ImageView>
-            <Label layoutX="19.0" layoutY="734.0" prefHeight="35.0" prefWidth="112.0" text="DDOKDDOK" textFill="#fbf4ff">
+            <Label layoutX="19.0" layoutY="734.0" prefHeight="35.0" prefWidth="112.0" text="DDOKDDOK" textFill="#6441a4">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="19.0" layoutY="752.0" prefHeight="35.0" prefWidth="112.0" text="Chatbot" textFill="#fbf4ff">
+            <Label layoutX="19.0" layoutY="752.0" prefHeight="35.0" prefWidth="112.0" text="Chatbot" textFill="#6441a4">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
+            <ImageView fitHeight="64.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@twitch.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <ScrollPane layoutX="172.0" layoutY="49.0" prefHeight="703.0" prefWidth="404.0">
-         <content>
-            <TableView prefHeight="848.0" prefWidth="394.0" fx:id="twitchTable">
-              <columns>
-                <TableColumn prefWidth="75.0" text="닉네임" />
-                <TableColumn prefWidth="75.0" text="시간" />
-                  <TableColumn prefWidth="243.0" text="채팅기록" />
-              </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
    </children>
 </AnchorPane>

@@ -12,13 +12,13 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #242A31;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TwitchController">
    <children>
-      <ScrollPane layoutX="172.0" layoutY="49.0" prefHeight="703.0" prefWidth="404.0" >
+      <ScrollPane layoutX="172.0" layoutY="49.0" prefHeight="703.0" prefWidth="404.0">
          <content>
-            <TableView fx:id="twitchTable">
+            <TableView fx:id="twitchTable" prefHeight="841.0" prefWidth="404.0">
                <columns>
-                  <TableColumn prefWidth="75.0" text="닉네임" fx:id = "UserID"/>
-                  <TableColumn prefWidth="75.0" text="시간" fx:id="Time"/>
-                  <TableColumn prefWidth="243.0" text="채팅기록" fx:id="Chat"/>
+                  <TableColumn fx:id="userID" prefWidth="63.0" text="ID" />
+                  <TableColumn fx:id="nickName" prefWidth="96.0" text="닉네임" />
+                  <TableColumn fx:id="chat" prefWidth="229.0" text="채팅기록" />
                </columns>
             </TableView>
          </content>

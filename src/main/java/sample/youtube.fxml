@@ -16,18 +16,18 @@
          <content>
             <TableView fx:id="youtubeTable" prefHeight="848.0" prefWidth="394.0">
                <columns>
-                  <TableColumn prefWidth="75.0" text="닉네임" />
-                  <TableColumn prefWidth="75.0" text="시간" />
-                  <TableColumn prefWidth="243.0" text="채팅기록" />
+                  <TableColumn prefWidth="75.0" text="ID" fx:id="userID"/>
+                  <TableColumn prefWidth="75.0" text="닉네임" fx:id="nickName"/>
+                  <TableColumn prefWidth="243.0" text="채팅기록" fx:id="chat"/>
                </columns>
             </TableView>
          </content>
       </ScrollPane>
       <Pane prefHeight="800.0" prefWidth="147.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Button layoutX="17.0" layoutY="95.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="108.0" text="욕설 키워드 추가" />
-            <Button layoutX="17.0" layoutY="180.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="108.0" text="허용 URL 추가" />
-            <Button layoutX="17.0" layoutY="265.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="108.0" text="입장 알림 추가" />
+            <Button layoutX="17.0" layoutY="95.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="108.0" text="욕설 키워드 추가" fx:id="keywords"/>
+            <Button layoutX="17.0" layoutY="180.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="108.0" text="허용 URL 추가" fx:id="urls" />
+            <Button layoutX="17.0" layoutY="265.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="108.0" text="입장 알림 추가" fx:id="streamers"/>
             <ImageView fitHeight="118.0" fitWidth="108.0" layoutX="17.0" layoutY="630.0" pickOnBounds="true" preserveRatio="true">
                <effect>
                   <InnerShadow blurType="GAUSSIAN" choke="1.0" color="WHITE" height="10.0" radius="4.5" width="10.0" />

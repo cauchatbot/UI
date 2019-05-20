@@ -32,8 +32,6 @@ public class LoginController implements Initializable {
             }
         });
         twitchButton.setOnAction(event -> handleButtonAction(event));
-
-
     }
     //handleButtonAction : event handler for each buttons.
     @FXML
@@ -51,7 +49,7 @@ public class LoginController implements Initializable {
                 if(idCheckYoutube(login)) {
                     //login success. close the login window and show youtube window.
                     oldStage.close();
-                    youtubeWindow();
+                    youtubeLoginWindow();
                 }
                 else {
                     //login fail. show fail notice window.
@@ -72,8 +70,6 @@ public class LoginController implements Initializable {
                 }
                 break;
         }
-
-        System.out.println(loginID.getText());
     }
     //idCheck : temp function for testing.
     public boolean idCheckTwitch(String login) {
@@ -84,10 +80,10 @@ public class LoginController implements Initializable {
         if(login.equals("youtube")) return true;
         else return false;
     }
-    // show youtube window.
-    private void youtubeWindow() {
+    // show youtube login window.
+    private void youtubeLoginWindow() {
         try {
-            Pane newPane = FXMLLoader.load(getClass().getResource("youtube.fxml"));
+            Pane newPane = FXMLLoader.load(getClass().getResource("youtubeLogin.fxml"));
             Scene newScene = new Scene(newPane);
             Stage newStage = new Stage();
             newStage.setScene(newScene);
@@ -97,7 +93,9 @@ public class LoginController implements Initializable {
         catch (IOException ex) {
             ex.printStackTrace();
         }
+
     }
+
     // show twitch window.
     private void twitchWindow() {
         try {

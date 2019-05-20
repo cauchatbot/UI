@@ -4,7 +4,10 @@ public class tempDS {
     private String userID;
     private String userNickName;
     private String chatText;
-    private Boolean isBadword;
+
+
+    private boolean isBadword;
+    private boolean isNamed;
 
     public tempDS(String userID, String userNickName, String chatText)
     {
@@ -12,6 +15,14 @@ public class tempDS {
         this.userNickName = userNickName;
         this.chatText = chatText;
         this.isBadword = false;
+        this.isNamed = false;
+    }
+    public void setIsBadword(boolean badword) {
+        isBadword = badword;
+    }
+    public void setIsNamed(boolean isNamed)
+    {
+        this.isNamed = isNamed;
     }
     public String getChatText()
     {
@@ -25,13 +36,14 @@ public class tempDS {
     {
         return userNickName;
     }
-    public Boolean getIsBadword()
+    public boolean getIsBadword()
     {
         return isBadword;
     }
-    public void setIsBadword(boolean isBadword)
+    public boolean getIsNamed()
     {
-        this.isBadword=isBadword;
+        return isNamed;
     }
+
 }
 

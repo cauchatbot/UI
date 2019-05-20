@@ -10,13 +10,15 @@ public class tempDSProperty {
     private StringProperty userNickName;
     private StringProperty chatText;
     private BooleanProperty isBadword;
+    private BooleanProperty isNamed;
 
-    public tempDSProperty(String userID, String userNickName, String chatText, boolean isBadword)
+    public tempDSProperty(String userID, String userNickName, String chatText, boolean isBadword, boolean isNamed)
     {
         this.userID = new SimpleStringProperty(userID);
         this.userNickName = new SimpleStringProperty(userNickName);
         this.chatText = new SimpleStringProperty(chatText);
         this.isBadword = new SimpleBooleanProperty(isBadword);
+        this.isNamed = new SimpleBooleanProperty(isNamed);
     }
     public tempDSProperty(tempDS ds)
     {
@@ -24,6 +26,7 @@ public class tempDSProperty {
         this.userNickName = new SimpleStringProperty(ds.getUserNickName());
         this.chatText = new SimpleStringProperty(ds.getChatText());
         this.isBadword = new SimpleBooleanProperty(ds.getIsBadword());
+        this.isNamed = new SimpleBooleanProperty(ds.getIsNamed());
     }
     public StringProperty getChatText()
     {
@@ -41,6 +44,7 @@ public class tempDSProperty {
     {
         return isBadword;
     }
+    public BooleanProperty getIsNamed() { return isNamed; }
 }
 
 

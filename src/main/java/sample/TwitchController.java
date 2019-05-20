@@ -6,7 +6,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -39,27 +44,37 @@ public class TwitchController implements Initializable {
     private TableColumn<tempDSProperty, String> nickName;
     @FXML
     private TableColumn<tempDSProperty, String> chat;
+    @FXML
+    private TableColumn<tempDSProperty, String> status;
 
     //temp initialize for show test
     tempDS seongmin = new tempDS("shieldnet", "ATEZ", "시발");
-    ObservableList<tempDSProperty> myList = FXCollections.observableArrayList(
-            new tempDSProperty("kwxyk", "Reichidad", "Sex!!!!!!!!!", true),
-            new tempDSProperty(seongmin)
-    );
+
+
+
 
     //initialize table contents, button actions.
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        seongmin.setIsBadword(true);
+        ObservableList<tempDSProperty> myList = FXCollections.observableArrayList(
+            new tempDSProperty("kwxyk", "Reichidad", "기모띠", false, true ),
+            new tempDSProperty(seongmin)
+        );
         userID.setCellValueFactory(cellData -> cellData.getValue().getUserID());
         nickName.setCellValueFactory(cellData -> cellData.getValue().getUserNickName());
         chat.setCellValueFactory(cellData -> cellData.getValue().getChatText());
+        status.setCellValueFactory(cellData -> setStatus(cellData.getValue().getIsBadword(), cellData.getValue().getIsNamed()));
         twitchTable.setItems(myList);
 
         //call each corresponding window that will be shown for clicking button
         keywords.setOnAction(event -> keywordsWindow());
         urls.setOnAction(event -> urlsWindow());
         streamers.setOnAction(event->streamersWindow());
-
+        twitchTable.setOnMouseClicked(event -> {
+            tempDSProperty selected = twitchTable.getSelectionModel().getSelectedItem();
+            banUser(selected);
+        });
     }
 
     // show keywords window.
@@ -108,8 +123,44 @@ public class TwitchController implements Initializable {
         catch (IOException ex) {
             ex.printStackTrace();
         }
-
     }
 
-
+    public void banUser(tempDSProperty selected) {
+        if(true) {
+            try {
+                Pane newPane = FXMLLoader.load(getClass().getResource("inputSuccess.fxml"));
+                Scene newScene = new Scene(newPane);
+                Stage newStage = new Stage();
+                newStage.setScene(newScene);
+                newStage.setTitle(selected.getUserNickName().getValue() + " was banned");
+                newStage.show();
+                twitchTable.getSelectionModel().clearSelection();
+                twitchTable.getItems().remove(selected);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        else {
+            try {
+                Pane newPane = FXMLLoader.load(getClass().getResource("inputFail.fxml"));
+                Scene newScene = new Scene(newPane);
+                Stage newStage = new Stage();
+                newStage.setScene(newScene);
+                newStage.setTitle("Ban " + selected.getUserNickName().getValue() + " failed");
+                newStage.show();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+    public StringProperty setStatus(BooleanProperty isBadword, BooleanProperty isNamed) {
+        if(isBadword.getValue() == true) {
+            return new SimpleStringProperty("욕설");
+        }
+        else if(isNamed.getValue() == true) {
+            return new SimpleStringProperty("스트리머!");
+        }
+        else
+            return new SimpleStringProperty("아무튼 이상함");
+    }
 }

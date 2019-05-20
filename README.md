@@ -6,7 +6,7 @@
 * DDOKDDOK Chatbot의 시작을 위한 로그인 기능을 제공합니다.
  * 테스트를 위해 Twitch는 twitch, Youtube는 youtube를 입력하면 로그인하여 각 Platform의 메인창으로 이동합니다.
  * Twitch Platform에서 사용하기 위해서는, 사용 스트리머의 채널 이름(방송 url *"twitch.tv/□"* 에서의 '□'부분)을 입력하고 Twitch 버튼을 눌러야합니다.(TO DO : Connection with model)
- * Youtube Platform에서 사용하기 위해서는, 사용 스트리머 채널의 공유 url *"youtube.com/watch?v=□"*(혹은, "youtu.be/□) 에서의 '□'부분을 입력하고 Youtube 버튼을 눌러야합니다.(TO DO : Connection with model)
+ * Youtube Platform에서 사용하기 위해서는, 사용 스트리머 채널의 공유 url *"youtube.com/watch?v=□"*(혹은, *"youtu.be/□*) 에서의 '□'부분을 입력하고 Youtube 버튼을 눌러야합니다.(TO DO : Connection with model)
  * Youtube 버튼을 누르면, 사용자 인증 API키를 받는 2차 로그인 창과 함께, youtube 로그인을 위한 인터넷 창이 열립니다. youtube에 로그인을 하면 API 키가 "애플리케이션 ~ 붙여넣으세요."라는 메세지와 함께 나타나고, 이것을 DDOKDDOK Chatbot 프로그램에 입력하면 됩니다.(TO DO : Need implementation)
  * 로그인에 실패하면 로그인 실패 안내창이 나타납니다. 안내창을 닫으면 다시 로그인 할 수 있습니다.
  
@@ -22,6 +22,8 @@
 # Installation
 * Maven을 이용하는 프로젝트이므로, .zip파일을 로컬에 다운받아서 압축을 푼 뒤 Maven Project에 Import해야합니다.
 * Javafx 기반의 UI입니다. javafxapplication을 extends하고있는 Main.java파일을 run하면, UI의 PrimaryStage를 Start합니다.
-* TwitchController.java와 YoutubeController.java의 Desktop.getDesktop().edit(new File("AbsolutePath"));으로 구현된 필터링 할 욕설과 채팅 허용 url링크, 입장 안내를 받을 스트리머 각각의 목록을 저장하고있는 .txt파일을 여는 부분에서, "AbsolutePath"부분을 RelativePath로 대체하는 방법을 아직 찾지 못했습니다. 실행하시기  Repository에 포함되어있는 keywords.txt, urls.txt, streamers.txt파일의 절대경로를 수정해주셔야합니다.
+* TwitchController.java와 YoutubeController.java의 
+*Desktop.getDesktop().edit(new File("AbsolutePath"));*
+으로 구현된 필터링 할 욕설과 채팅 허용 url링크, 입장 안내를 받을 스트리머 각각의 목록을 저장하고있는 .txt파일을 여는 부분에서, "AbsolutePath"부분을 RelativePath로 대체하는 방법을 아직 찾지 못했습니다. 실행하시기  Repository에 포함되어있는 keywords.txt, urls.txt, streamers.txt파일의 절대경로를 수정해주셔야합니다.
 
  

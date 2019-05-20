@@ -1,5 +1,5 @@
 # DDOKDDOK/UI
-## DDOKDDOK Chatbot의 UI Repository
+## DDOKDDOK Chatbot UI Repository
  * DDOKDDOK Team의 UI 디자인 및 UI Controller 개발을 위한 Repository입니다.
 
 # Main Features
